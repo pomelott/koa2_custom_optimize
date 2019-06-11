@@ -7,6 +7,43 @@
     <title>Document</title>
 </head>
 <body>
-    dsfdsfdsfds
+    <button id="doGet">get</button>
+    <button id="doPost">post</button>
+    <script src="//res.ekwing.com/js/plugins/jquery.js"></script>
+    <script>
+    $("#doGet").click(function () {
+        $.ajax({
+            url: '/doget',
+            type: 'GET',
+            data: {
+                param1: 'get1',
+                param2: 'get2'
+            },
+            success: function (msg) {
+                console.log(msg);
+            },
+            fail: function (err) {
+                console.log(err);
+            }
+        })
+    })
+
+    $("#doPost").click(function () {
+        $.ajax({
+            url: '/dopost',
+            type: 'POST',
+            data: {
+                param1: 'post1',
+                param2: 'post2'
+            },
+            success: function (msg) {
+                console.log(msg);
+            },
+            fail: function (err) {
+                console.log(err);
+            }
+        })
+    })
+    </script>
 </body>
 </html>

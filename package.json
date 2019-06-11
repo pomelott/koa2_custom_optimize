@@ -1,6 +1,6 @@
 {
-  "name": "nodeinit",
-  "version": "1.0.0",
+  "name": "pomeloinit",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -9,6 +9,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "koa": "^2.7.0"
+    "ejs": "^2.6.1",
+    "koa": "^2.7.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-ejs": "^4.2.0",
+    "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0",
+    "koa-views": "^6.2.0",
+    "user": "0.0.0"
   }
 }
