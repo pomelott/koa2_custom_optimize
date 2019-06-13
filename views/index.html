@@ -9,6 +9,14 @@
 <body>
     <button id="doGet">get</button>
     <button id="doPost">post</button>
+    <button id="user">user</button>
+    <button id="passage">passage</button>
+    <button id="token">token</button>
+    <form>
+        <div for=""><span>账号：</span><input type="text" name="username" class="username"></div>
+        <div for=""><span>密码：</span><input type="password" name="pwd" class="pwd"></div>
+        <button id="doSub">dosub</button>
+    </form>
     <script src="//res.ekwing.com/js/plugins/jquery.js"></script>
     <script>
     $("#doGet").click(function () {
@@ -44,6 +52,81 @@
             }
         })
     })
+
+    $("#user").click(function () {
+        $.ajax({
+            url: '/user/16',
+            type: 'POST',
+            data: {
+                param1: 'post1',
+                param2: 'post2'
+            },
+            success: function (msg) {
+                console.log(msg);
+            },
+            fail: function (err) {
+                console.log(err);
+            }
+        })
+    })
+
+    $("#passage").click(function () {
+        $.ajax({
+            url: '/passage/26/posts',
+            type: 'POST',
+            data: {
+                param1: 'post1',
+                param2: 'post2'
+            },
+            success: function (msg) {
+                console.log(msg);
+            },
+            fail: function (err) {
+                console.log(err);
+            }
+        })
+    })
+    $("#doSub").click(function () {
+        $.ajax({
+            url: '/login',
+            type: 'POST',
+            data: {
+                username: $('.username').val(),
+                pwd: $('.pwd').val()
+            },
+            success: function (msg) {
+                console.log(msg);
+                localStorage.setItem('token', msg.token);
+            },
+            fail: function (err) {
+                console.log(err);
+            }
+        })
+    })
+    $("#token").click(function () {
+        $.ajax({
+            url: '/userinfo',
+            type: 'get',
+            data: {
+                param1: 'post1',
+                param2: 'post2',
+                token: localStorage.getItem('token')
+            },
+            // beforeSend: function (xhr) {
+            //     xhr.setRequestHeader("authorization","Bearer " + localStorage.getItem('token'));
+            // },
+            success: function (msg) {
+                console.log(msg);
+            },
+            fail: function (err) {
+                console.log(err);
+            }
+        })
+    })
+
+    function onLogin (msg) {
+        alert(msg)
+    }
     </script>
 </body>
 </html>
