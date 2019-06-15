@@ -25,7 +25,7 @@ app.use(async (ctx, next) => {
     // console.log(ctx.request.query)
     // console.log(ctx.request.body)
     console.log(params)
-    ctx.request.header = {'authorization': "Bearer " + (params.token || '')}
+    // ctx.request.header = {'authorization': "Bearer " + (params.token || '')}
     // ctx.request.header.authorization = "Bearer " + (params.token || '');
     console.log('pass -------------------------------pass')
     await next();
