@@ -21,13 +21,7 @@ app.use(static(path.join(__dirname, '/static')))
 app.use(async (ctx, next) => {
     console.log(ctx)
     let params =Object.assign({}, ctx.request.query, ctx.request.body);
-    console.log('****************************************')
-    // console.log(ctx.request.query)
-    // console.log(ctx.request.body)
-    console.log(params)
-    // ctx.request.header = {'authorization': "Bearer " + (params.token || '')}
-    // ctx.request.header.authorization = "Bearer " + (params.token || '');
-    console.log('pass -------------------------------pass')
+    ctx.request.header = {'authorization': "Bearer " + (params.token || '')}
     await next();
 })
 
@@ -36,9 +30,7 @@ router.get('/', async (ctx, next) => {
 })
 
 router.post('/login', async (ctx, next) => {
-    console.log('-----------------------------------------------------');
     const user = ctx.request.body;
-    console.log(user)
     if (user && user.username === 'tate') {
         let {username} = user;
         const token = sign({username, test: 'testok'}, secret, {expiresIn: '1h'});
@@ -53,7 +45,8 @@ router.post('/login', async (ctx, next) => {
             code: -1
         }
     }
-}).get('/userinfo', jwt, async (ctx, next) => {
+})
+.get('/userinfo', jwt, async (ctx, next) => {
     ctx.body = {username: ctx.state.user.username}
     console.log(ctx)
 })

@@ -7,11 +7,13 @@
     <title>Document</title>
 </head>
 <body>
+    <h1>Author: {{author}}</h1>
     <button id="doGet">get</button>
     <button id="doPost">post</button>
     <button id="user">user</button>
     <button id="passage">passage</button>
     <button id="token">token</button>
+    <a href="/datalist">datalist</a>
     <form>
         <div for=""><span>账号：</span><input type="text" name="username" class="username"></div>
         <div for=""><span>密码：</span><input type="password" name="pwd" class="pwd"></div>
@@ -112,9 +114,9 @@
                 param2: 'post2',
                 token: localStorage.getItem('token')
             },
-            // beforeSend: function (xhr) {
-            //     xhr.setRequestHeader("authorization","Bearer " + localStorage.getItem('token'));
-            // },
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("authorization","Bearer " + localStorage.getItem('token'));
+            },
             success: function (msg) {
                 console.log(msg);
             },
