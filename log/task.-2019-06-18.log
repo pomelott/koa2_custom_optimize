@@ -1,0 +1,1 @@
+[2019-06-18T16:47:21.620] [INFO] cheese - {"projectName":"koa2-tutorial","serverIp":"0.0.0.0","method":"GET","url":"/","host":"","message":"{\"projectName\":\"koa2-tutorial\",\"serverIp\":\"0.0.0.0\",\"method\":\"GET\",\"url\":\"/\",\"host\":\"\",\"message\":{\"responseTime\":\"响应时间为0.027s\"}}"}

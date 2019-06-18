@@ -8,6 +8,7 @@ const port = 3000;
 
 
 const server = http.createServer((req, res) => {
+    console.log('create')
     // console.log(typeof req, typeof res)
     const pathname = url.parse(req.url).pathname;
     const extname = path.extname(pathname);

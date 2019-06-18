@@ -4,6 +4,34 @@ const MiddleWare = require('./middleware');
 const Router = require('./router')
 // const views = require('koa-views');
 
+
+const log4js = require('log4js');
+
+log4js.configure({
+    appenders: {
+        cheese: {
+            type: 'file',
+            filename: 'cheese.log'
+        }
+    },
+    categories: {
+        default: {
+            appenders: ['cheese'],
+            level: 'trace'
+        }
+    }
+})
+
+
+const logger = log4js.getLogger('cheese');
+logger.trace('entering cheese testing');
+logger.debug('got cheese');
+logger.info('cheese is Gouda');
+logger.warn('cheese is quite smelly');
+logger.error('cheese is too ripe');
+logger.fatal('cheese was breeding ground for listeria');
+
+
 // 中间件初始化
 MiddleWare(app);
 

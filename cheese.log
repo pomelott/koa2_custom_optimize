@@ -1,0 +1,30 @@
+[2019-06-18T14:42:14.582] [ERROR] cheese - cheese is too ripe
+[2019-06-18T14:42:14.584] [FATAL] cheese - cheese was breeding ground for listeria
+[2019-06-18T14:44:23.721] [TRACE] cheese - entering cheese testing
+[2019-06-18T14:44:23.722] [DEBUG] cheese - got cheese
+[2019-06-18T14:44:23.723] [INFO] cheese - cheese is Gouda
+[2019-06-18T14:44:23.723] [WARN] cheese - cheese is quite smelly
+[2019-06-18T14:44:23.723] [ERROR] cheese - cheese is too ripe
+[2019-06-18T14:44:23.723] [FATAL] cheese - cheese was breeding ground for listeria
+[2019-06-18T15:00:03.723] [TRACE] cheese - entering cheese testing
+[2019-06-18T15:00:03.724] [DEBUG] cheese - got cheese
+[2019-06-18T15:00:03.724] [INFO] cheese - cheese is Gouda
+[2019-06-18T15:00:03.724] [WARN] cheese - cheese is quite smelly
+[2019-06-18T15:00:03.724] [ERROR] cheese - cheese is too ripe
+[2019-06-18T15:00:03.724] [FATAL] cheese - cheese was breeding ground for listeria
+[2019-06-18T15:00:07.536] [INFO] cheese - 响应时间为0.027s
+[2019-06-18T15:52:52.568] [TRACE] cheese - entering cheese testing
+[2019-06-18T15:52:52.570] [DEBUG] cheese - got cheese
+[2019-06-18T15:52:52.570] [INFO] cheese - cheese is Gouda
+[2019-06-18T15:52:52.570] [WARN] cheese - cheese is quite smelly
+[2019-06-18T15:52:52.570] [ERROR] cheese - cheese is too ripe
+[2019-06-18T15:52:52.570] [FATAL] cheese - cheese was breeding ground for listeria
+[2019-06-18T15:53:04.911] [INFO] cheese - 响应时间为0.037s
+[2019-06-18T15:53:07.211] [INFO] cheese - 响应时间为0.002s
+[2019-06-18T15:53:35.783] [INFO] cheese - 响应时间为0.003s
+[2019-06-18T16:47:16.630] [TRACE] cheese - entering cheese testing
+[2019-06-18T16:47:16.631] [DEBUG] cheese - got cheese
+[2019-06-18T16:47:16.631] [INFO] cheese - cheese is Gouda
+[2019-06-18T16:47:16.631] [WARN] cheese - cheese is quite smelly
+[2019-06-18T16:47:16.631] [ERROR] cheese - cheese is too ripe
+[2019-06-18T16:47:16.631] [FATAL] cheese - cheese was breeding ground for listeria
