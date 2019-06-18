@@ -1,43 +1,16 @@
-const Sequelize = require('sequelize');
-const sequelize = new Sequelize('test', 'root', 'root', {
-    host: 'localhost',
-    dialect: 'mysql',
-    port: 3306
-})
-sequelize.authenticate().then(() => {
-    console.log('okkkkk')
-}).catch((err) => {
-    console.log(err)
-})
-const mylist = sequelize.define('category', {
-    uid: {
-        type: Sequelize.UUID,
-        unique: true,
-    },
-    name: {
-        type: Sequelize.STRING,
-        allowNull: false
-    },
-    date: {
-        type: Sequelize.DATE,
-        defaultValue: Sequelize.NOW
-    }
-})
+const opCategory = require('../service/category');
 module.exports = {
     linkDb: async (ctx, next) => {
-        
-        
-        mylist.sync();
         let mylistData = [];
-        await mylist.findAll().then((tb) => {
+        // opCategory.sync();
+        await opCategory.getList().then((tb) => {
             for (let index in tb) {
                 mylistData.push(tb[index])
             }
-        });
+        })
         await ctx.render('datalist', {listData: mylistData})
     },
     subList: async (ctx, next) => {
-        console.log()
         let paramArr = ctx.request.body.split('\r\n');
         let temp = {};
         paramArr.forEach((item, index) => {
@@ -47,11 +20,7 @@ module.exports = {
             }
             
         })
-        console.log(temp)
-        await mylist.create({
-            uid: temp.uid,
-            name: temp.uname
-        }).then(() => {
+        await opCategory.subList(temp.uid, temp.uname).then(() => {
             ctx.send({status: 0})
         })
     }
