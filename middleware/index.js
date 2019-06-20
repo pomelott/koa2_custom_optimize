@@ -5,6 +5,7 @@ const nunjucks = require('koa-nunjucks-2');
 const pomeloSend = require('./pomelo-send');
 const koaBody = require('koa-body');
 const miLog = require('./mi-log');
+const miHttpErr = require('./mi-http-error');
 module.exports = (app) => {
     // 模板引擎配置，view资源位置配置
     // ejs模板引擎
@@ -13,7 +14,9 @@ module.exports = (app) => {
     // }))
     // nunjucks模板引擎
     app
+
         .use(miLog())
+        .use(miHttpErr(nunjucks, path))
         .use(nunjucks({
             ext: 'html',
             path: path.join(__dirname, '../views'),
@@ -21,6 +24,7 @@ module.exports = (app) => {
                 trimBlocks: true
             }
         }))
+        
     // 静态资源位置配置
         .use(static(path.join(__dirname, '/static')))
         .use(bodyParser({

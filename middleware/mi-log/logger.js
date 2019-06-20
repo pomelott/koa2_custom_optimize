@@ -5,7 +5,7 @@ const baseInfo = {
     appLogLevel: 'debug',
     dir: 'log',
     env: 'dev',
-    projectName: 'koa2-tutorial',
+    projectName: 'ek-beta',
     serverIp: '0.0.0.0'
 }
 module.exports = (options) => {
@@ -14,7 +14,7 @@ module.exports = (options) => {
     const opts = Object.assign({}, baseInfo, options || {});
     const {env, appLogLevel, dir, serverIp, projectName} = opts;
     const commonInfo = {projectName, serverIp};
-    appenders.cheese = {
+    appenders.ekwing = {
         type: 'dateFile',
         filename: `${dir}/task`,
         pattern: '-yyyy-MM-dd.log',
@@ -35,7 +35,7 @@ module.exports = (options) => {
         }
     }
     log4js.configure(config)
-    const logger = log4js.getLogger('cheese');
+    const logger = log4js.getLogger('ekwing');
     
     return async (ctx, next) => {
         const start = Date.now();
