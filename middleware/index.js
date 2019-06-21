@@ -6,17 +6,34 @@ const pomeloSend = require('./pomelo-send');
 const koaBody = require('koa-body');
 const miLog = require('./mi-log');
 const miHttpErr = require('./mi-http-error');
+const miFileMap = require('./mi-file-map')
 module.exports = (app) => {
     // 模板引擎配置，view资源位置配置
     // ejs模板引擎
     // app.use(views(__dirname + '/views', {
     //     map: {html: 'ejs'}
     // }))
-    // nunjucks模板引擎
+
+
+    // 代码结构映射
+    miFileMap({
+        app,
+        rules: [{ //指定controller文件夹下的js文件，挂载在app.controller属性
+                folder: path.join(__dirname, '../controller'),
+                name: 'controller'
+            },
+            { // 指定service文件夹下的js文件，挂载在app.service属性
+                folder: path.join(__dirname, '../service'),
+                name: 'service'
+            }
+        ]
+    });
+
     app
 
         .use(miLog())
         .use(miHttpErr(nunjucks, path))
+        // nunjucks模板引擎
         .use(nunjucks({
             ext: 'html',
             path: path.join(__dirname, '../views'),

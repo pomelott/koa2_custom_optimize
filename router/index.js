@@ -3,21 +3,20 @@ const { sign } = require('jsonwebtoken');
 const secret = 'pomelo';
 const jwt = require('koa-jwt')({secret});
 const router = new Router();
-const IndexController = require('../controller/index');
-const UploadController = require('../controller/upload');
-const DataList = require('../controller/datalist');
 const Login = require('./login');
 const User = require('./user');
 
 
 module.exports = (app) => {
-    router.get('/', IndexController.index)
-    router.get('/404', IndexController.notFound)
-    router.get('/test', IndexController.test);
-    router.get('/doupload', UploadController.uploadIndex)
-    router.post('/sendfile', UploadController.sendFile)
-    router.get('/datalist', DataList.linkDb)
-    router.post('/sublist', DataList.subList)
+    const ctr = app.controller;
+    router.get('/', ctr.index.index)
+    router.get('/404',ctr.index.notFound)
+    router.get('/test',ctr.index.test);
+    router.get('/doupload',ctr.upload.uploadIndex)
+    router.post('/sendfile',ctr.upload.sendFile)
+    router.get('/datalist',ctr.datalist.linkDb)
+    router.post('/sublist',ctr.datalist.subList)
+    router.get('/testssr', ctr.ssr.testssr)
     Login(router, sign, secret);
     User(router, jwt);
     
