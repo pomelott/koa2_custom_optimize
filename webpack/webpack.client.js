@@ -2,10 +2,10 @@ const path = require('path')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 module.exports = {
+    watch: true,
     entry: path.resolve(__dirname, '../src/entry-client.js'),
     output: {
         path: path.resolve(__dirname, '../dist'),
-        libraryTarget: 'commonjs2',
         filename: 'client.js'
     },
     module:{

@@ -3,7 +3,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 module.exports = {
     target: 'node',
-    
+    watch: true,
     entry: path.resolve(__dirname, '../src/entry-server.js'),
     output: {
         path: path.resolve(__dirname, '../dist'),

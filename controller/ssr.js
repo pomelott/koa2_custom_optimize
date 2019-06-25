@@ -4,7 +4,7 @@ const renderer = require('vue-server-renderer').createRenderer();
 const app = require('../dist/server.js')
 const clientBundleFileUrl = path.join(__dirname, '../dist/client.js');
 // let app = createApp();
-console.log(app)
+// console.log(app)
 module.exports = {
     testssr: async (ctx, next) => {
         // let app = new Vue({
