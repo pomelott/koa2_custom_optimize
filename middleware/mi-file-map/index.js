@@ -12,7 +12,7 @@ module.exports = function (opts) {
         let {folder,name} = item;
         // 如果 app 实例中已经存在了传入过来的属性名，则抛出错误
         if (appKeys.includes(name)) { 
-            throw new Error(`the name of ${name} already exists!`);
+            throw new Error(`the name of ${name} already exists on app!`);
         }
         let content = {};
         //读取指定文件夹下(dir)的所有文件并遍历
@@ -25,8 +25,20 @@ module.exports = function (opts) {
             }
         });
         app[name] = content;
+        
     })
 
+    app.use(async (ctx, next) => {
+        rules.forEach((item, index) => {
+            let {name} = item;
+            if (Object.keys(ctx).indexOf(name) !== -1) {
+                throw new Error(`the name of ${name} already exists on ctx!`)
+            } else {
+                ctx[name] = app[name];
+            }
+        })
+        await next();
+    })
     
 }
 

@@ -6,5 +6,12 @@ module.exports = {
     vipList: async (ctx, next) => {
         console.log(ctx.state)
         
+    },
+    addUser: async (ctx, next) => {
+        console.log(111111111111111111111)
+        console.log(ctx.request)
+        // ctx.model.user.addUser(ctx.)
+        // ctx.response.body ='dfs'
+        ctx.send({test: 'fdsfds'})
     }
 }

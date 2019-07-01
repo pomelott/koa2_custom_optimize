@@ -20,6 +20,14 @@
         <div for=""><span>密码：</span><input type="password" name="pwd" class="pwd"></div>
         <button id="doSub">dosub</button>
     </form>
+
+    <div>
+        <h2>userlist</h2>
+        
+            <input type="password" name="fuck" id="name_value">
+            <button id="addUser">add user</button>
+        
+    </div>
     <script src="//res.ekwing.com/js/plugins/jquery.js"></script>
     <script>
     $("#doGet").click(function () {
@@ -130,6 +138,24 @@
     function onLogin (msg) {
         alert(msg)
     }
+
+    $('#addUser').click(function () {
+        $.ajax({
+            url: '/myadd',
+            type: 'POST',
+            data: {
+                uname: $('#name_value').val(),
+                test1: 'fdsfd fdsfds fdsf ds fdsf',
+                test2: 'fdsfds dsfds fds fds fds fds'
+            },
+            success: function (msg) {
+                console.log(msg)
+            },
+            fail: function (err) {
+                console.log(err)
+            }
+        })
+    })
     </script>
 </body>
 </html>

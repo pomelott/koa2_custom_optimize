@@ -1,8 +1,8 @@
-const LoginService = require('../service/login');
+// const LoginService = require('../service/db/login');
 module.exports = {
     login: async (ctx, next) => {
         const user = ctx.request.body;
-        if (user && LoginService.getTokenAuthentic('tate')) {
+        if (user && ctx.db.LoginService.getTokenAuthentic('tate')) {
             let {username} = user;
             const token = sign({username, test: 'testok'}, secret, {expiresIn: '1h'});
             ctx.body = {

@@ -1,9 +1,8 @@
-const opCategory = require('../service/category');
 module.exports = {
     linkDb: async (ctx, next) => {
         let mylistData = [];
         // opCategory.sync();
-        await opCategory.getList().then((tb) => {
+        await ctx.db.category.getList().then((tb) => {
             for (let index in tb) {
                 mylistData.push(tb[index])
             }
@@ -20,7 +19,7 @@ module.exports = {
             }
             
         })
-        await opCategory.subList(temp.uid, temp.uname).then(() => {
+        await ctx.db.category.subList(temp.uid, temp.uname).then(() => {
             ctx.send({status: 0})
         })
     }

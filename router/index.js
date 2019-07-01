@@ -13,10 +13,11 @@ module.exports = (app) => {
     router.get('/404',ctr.index.notFound)
     router.get('/test',ctr.index.test);
     router.get('/doupload',ctr.upload.uploadIndex)
-    router.post('/sendfile',ctr.upload.sendFile)
+    // router.post('/sendfile',ctr.upload.sendFile)
     router.get('/datalist',ctr.datalist.linkDb)
     router.post('/sublist',ctr.datalist.subList)
     router.get('/testssr', ctr.ssr.testssr)
+    router.post('/myadd', ctr.user.addUser)
     Login(router, sign, secret);
     User(router, jwt);
     

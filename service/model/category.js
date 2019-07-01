@@ -1,4 +1,4 @@
-const category = require('./tb').category
+const category = require('../db/tb').category
 
 module.exports = {
     getList: async () => {

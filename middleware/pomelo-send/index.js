@@ -1,6 +1,7 @@
 module.exports = () => {
     function render (json) {
         this.set('Content-type', 'application/json');
+        console.log(json)
         this.body = JSON.stringify(json);
     }
     return async (ctx, next) => {

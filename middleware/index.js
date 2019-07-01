@@ -23,9 +23,13 @@ module.exports = (app) => {
                 name: 'controller'
             },
             { // 指定service文件夹下的js文件，挂载在app.service属性
-                folder: path.join(__dirname, '../service'),
-                name: 'service'
-            }
+                folder: path.join(__dirname, '../service/model'),
+                name: 'model'
+            },
+            { // 指定service文件夹下的js文件，挂载在app.service属性
+                folder: path.join(__dirname, '../service/transactions'),
+                name: 'tp'
+            },
         ]
     });
 

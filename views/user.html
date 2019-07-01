@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <div>
+            <h2>userlist</h2>
+                <input type="text" name="uname" id="uname">
+                <input type="password" name="pwd" id="pwd">
+                <button id="addUser">add</button>
+            
+        </div>
+    <script src="//res.ekwing.com/js/plugins/jquery.js"></script>
+    <script>
+    $('#addUser').click(function () {
+        $.ajax({
+            url: '/myadd',
+            type: 'post',
+            data: {
+                uname: $('#uname').val(),
+                pwd: $('#pwd').val()
+            },
+            success: function (msg) {
+                console.log(msg)
+            },
+            fail: function (err) {
+                console.log(err)
+            }
+        })
+    })
+    </script>
+</body>
+</html>

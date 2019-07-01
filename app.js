@@ -2,12 +2,12 @@ const koa = require('koa');
 const app = new koa();
 const MiddleWare = require('./middleware');
 const Router = require('./router')
-// const views = require('koa-views');
 
 
 // 中间件初始化
 MiddleWare(app);
-
+//业务路由初始化
+Router(app);
 // token总路由验证
 app.use(async (ctx, next) => {
     let params =Object.assign({}, ctx.request.query, ctx.request.body);
@@ -15,8 +15,7 @@ app.use(async (ctx, next) => {
     await next();
 })
 
-//业务路由初始化
-Router(app);
+
 
 app.on('err', (err, ctx) => {
     console.log(err);
@@ -25,3 +24,4 @@ app.on('err', (err, ctx) => {
 app.listen(3000, () => {
     console.log('server is running at port 3000');
 })
+

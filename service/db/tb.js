@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const sequelize = require('./db');
+const sequelize = require('../conf/db_conf');
 module.exports = {
     category: sequelize.define('category', {
         uid: {
@@ -14,5 +14,7 @@ module.exports = {
             type: Sequelize.DATE,
             defaultValue: Sequelize.NOW
         }
-    })
+    }),
+    relation: sequelize.define('u_relation'),
+    users: sequelize.define('users')
 }
