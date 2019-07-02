@@ -9,7 +9,9 @@ module.exports = {
         
     },
     addUser: async (ctx, next) => {
-        console.log(decodeURIComponent(ctx.request.body))
+        console.log(111);
+        let str = ctx.request.body
+        console.log(str)
         // await ctx.model.user.addUser('pomelott');
         // ctx.send({test: 'fdsfds'})
     },

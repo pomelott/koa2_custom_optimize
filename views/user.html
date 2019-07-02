@@ -20,6 +20,7 @@
         $.ajax({
             url: '/myadd',
             type: 'post',
+            contentType: 'text/plain',
             data: {
                 uname: $('#uname').val(),
                 pwd: $('#pwd').val()

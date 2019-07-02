@@ -20,7 +20,7 @@ router.get('/test', (ctx, next) => {
     ctx.response.body = 'get------/test';
 })
 
-router.delete('/myadd', (ctx, next) => {
+router.post('/myadd', (ctx, next) => {
     console.log(1212112121)
 })
 
