@@ -1,3 +1,4 @@
+
 module.exports = {
     userInfo: async (ctx, next) => {
         ctx.body = {username: ctx.state.user.username}
@@ -8,10 +9,27 @@ module.exports = {
         
     },
     addUser: async (ctx, next) => {
-        console.log(111111111111111111111)
-        console.log(ctx.request)
-        // ctx.model.user.addUser(ctx.)
-        // ctx.response.body ='dfs'
-        ctx.send({test: 'fdsfds'})
+        console.log(decodeURIComponent(ctx.request.body))
+        // await ctx.model.user.addUser('pomelott');
+        // ctx.send({test: 'fdsfds'})
+    },
+    userlist: async (ctx, next) => {
+        let mylistData = [];
+        await ctx.model.user.userList().then((tb) => {
+            for (let index in tb) {
+                mylistData.push(tb[index])
+            }
+        })
+        console.log(mylistData)
+        await ctx.render('userlist', {listData: mylistData})
+    },
+    addRelationHandler: async (ctx, next) => {
+        console.log(111)
+        await ctx.model.user.addRelationDb('pomelott', 'tate').then((tb) => {
+            console.log(tb)
+        }).catch((err) => {
+            console.log(err)
+        })
+        await ctx.send({status: 0})
     }
 }

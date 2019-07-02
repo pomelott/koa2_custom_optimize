@@ -18,6 +18,11 @@ module.exports = (app) => {
     router.post('/sublist',ctr.datalist.subList)
     router.get('/testssr', ctr.ssr.testssr)
     router.post('/myadd', ctr.user.addUser)
+    router.get('/userlist', ctr.user.userlist)
+    router.post('/addrelation', ctr.user.addRelationHandler)
+    router.get('/mid', (ctx, next) => {
+        console.log(ctx.request)
+    })
     Login(router, sign, secret);
     User(router, jwt);
     

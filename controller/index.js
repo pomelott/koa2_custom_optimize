@@ -6,7 +6,7 @@ module.exports = {
         })
     },
     index: async (ctx, next) => {
-        await ctx.render('user', {
+        await ctx.render('index', {
             author: 'pomelott'
         })
     },
