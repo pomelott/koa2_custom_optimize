@@ -20,9 +20,7 @@ module.exports = (app) => {
     router.post('/myadd', ctr.user.addUser)
     router.get('/userlist', ctr.user.userlist)
     router.post('/addrelation', ctr.user.addRelationHandler)
-    router.get('/mid', (ctx, next) => {
-        console.log(ctx.request)
-    })
+    router.post('/deluser', ctr.user.delUser)
     Login(router, sign, secret);
     User(router, jwt);
     

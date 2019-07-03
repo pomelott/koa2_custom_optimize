@@ -1,17 +1,17 @@
-
+let querytoObj = require('../ek_modules/queryToObj')
 module.exports = {
     userInfo: async (ctx, next) => {
         ctx.body = {username: ctx.state.user.username}
-        console.log(ctx)
     },
     vipList: async (ctx, next) => {
         console.log(ctx.state)
         
     },
     addUser: async (ctx, next) => {
-        console.log(decodeURIComponent(ctx.request.body))
-        // await ctx.model.user.addUser('pomelott');
-        // ctx.send({test: 'fdsfds'})
+        let queryObj = querytoObj(ctx.request.body);
+        await ctx.model.user.addUser(queryObj.uname).then((data) => {
+            console.log(data)
+        })
     },
     userlist: async (ctx, next) => {
         let mylistData = [];
@@ -20,16 +20,21 @@ module.exports = {
                 mylistData.push(tb[index])
             }
         })
-        console.log(mylistData)
         await ctx.render('userlist', {listData: mylistData})
     },
     addRelationHandler: async (ctx, next) => {
-        console.log(111)
-        await ctx.model.user.addRelationDb('pomelott', 'tate').then((tb) => {
-            console.log(tb)
+        let param  = querytoObj(ctx.request.body);
+        await ctx.model.user.addRelationDb(param.uname1, param.uname2).then((tb) => {
+            ctx.send({status: 0})
         }).catch((err) => {
             console.log(err)
         })
-        await ctx.send({status: 0})
+    },
+    delUser: async (ctx, next) => {
+        let param = querytoObj(ctx.request.body);
+        await ctx.model.user.delUser(param.uname).then((data) => {
+         
+            ctx.send({status: 0})
+        })
     }
 }

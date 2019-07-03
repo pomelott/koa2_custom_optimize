@@ -22,12 +22,13 @@
     </form>
 
     <div>
-        <h2>userlist</h2>
+        <h1>userlist</h1>
+        <h2>db</h2>
         <div>
                 <a href="/userlist">userlist</a>
         </div>
         <div>
-                <input type="password" name="fuck" id="name_value">
+                <input type="text" name="adduser" id="name_value">
                 <button id="addUser">add user</button>
         </div>
         <div>
@@ -36,7 +37,15 @@
                 <input type="text" name="join2" id="join2">
                 <button id="addRelation">add relation</button>
         </div>
-        
+        <div>
+                <input type="text" name="deluser" id="del_name_value">
+                <button id="delUser">del user</button>
+        </div>
+        <div>
+                <input type="text" name="delrelation" id="del_relation_value">
+                <button id="delRelation">del relation</button>
+        </div>
+        <h2>事务</h2>
     </div>
     <script src="//res.ekwing.com/js/plugins/jquery.js"></script>
     <script>
@@ -155,8 +164,7 @@
             type: 'POST',
             contentType: 'text/plain',
             data: {
-                uname: $('#name_value').val(),
-                test: encodeURI('test str')
+                uname: $('#name_value').val()
             },
             success: function (msg) {
                 console.log(msg)
@@ -174,6 +182,22 @@
             data: {
                 uname1: $('#join1').val(),
                 uname2: $('#join2').val()
+            },
+            success: function (msg) {
+                console.log(msg)
+            },
+            fail: function (err) {
+                console.log(err)
+            }
+        })
+    })
+    $('#delUser').click(function () {
+        $.ajax({
+            url: '/deluser',
+            type: 'POST',
+            contentType: 'text/plain',
+            data: {
+                uname: $('#del_name_value').val()
             },
             success: function (msg) {
                 console.log(msg)
