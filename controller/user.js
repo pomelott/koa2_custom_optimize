@@ -8,10 +8,13 @@ module.exports = {
         
     },
     addUser: async (ctx, next) => {
-        let queryObj = querytoObj(ctx.request.body);
-        await ctx.model.user.addUser(queryObj.uname).then((data) => {
-            console.log(data)
-        })
+
+    let queryObj = querytoObj(ctx.request.body);
+    await ctx.model.user.addUser(queryObj.uname).then((data) => {
+        console.log(data)
+    })
+
+
     },
     userlist: async (ctx, next) => {
         let mylistData = [];
