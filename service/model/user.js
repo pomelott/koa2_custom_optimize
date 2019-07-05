@@ -1,7 +1,9 @@
 const tb = require("../db/tb"); 
+const Sequelize = require('sequelize');
 const users = tb.users;
 const uRelation = tb.relation;
-
+const category = tb.category;
+const Op = Sequelize.Op
 module.exports = {
     async addUser (uname) {
         return await users.create({
@@ -37,16 +39,30 @@ module.exports = {
             })
         })
     },
-    async delUser (uname) {
-        console.log(uname)
-        return await users.delete({
+    async delUser (param, conf) {
+        return await users.destroy({
             where: {
-                name: {
-                    eq: uname
-                }
+                name: param.uname
             },
-            force: true,
-            truncate: true
+            force: true
         }).then(data => console.log(data)).catch(err => console.log(err))
-    }
+    },
+    async delRelation (param, conf) {
+        let uid;
+        await users.findOne({
+            where: {
+                name: param.uname
+            }
+        }).then(async (data) => {
+            uid = data.dataValues.uid;
+            return await uRelation.destroy({
+                where: {
+                    [Op.or]: [
+                        {join_id1: uid},
+                        {join_id2: uid}
+                    ]
+                }
+            })
+        })
+    },
 }

@@ -21,6 +21,7 @@ module.exports = (app) => {
     router.get('/userlist', ctr.user.userlist)
     router.post('/addrelation', ctr.user.addRelationHandler)
     router.post('/deluser', ctr.user.delUser)
+    router.post('/delrelation', ctr.user.delRelation)
     Login(router, sign, secret);
     User(router, jwt);
     

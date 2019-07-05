@@ -37,15 +37,15 @@
                 <input type="text" name="join2" id="join2">
                 <button id="addRelation">add relation</button>
         </div>
-        <div>
-                <input type="text" name="deluser" id="del_name_value">
-                <button id="delUser">del user</button>
-        </div>
+        
         <div>
                 <input type="text" name="delrelation" id="del_relation_value">
                 <button id="delRelation">del relation</button>
         </div>
-        <h2>事务</h2>
+        <div>
+                <input type="text" name="deluser" id="del_name_value">
+                <button id="delUser">del user</button>
+        </div>
     </div>
     <script src="//res.ekwing.com/js/plugins/jquery.js"></script>
     <script>
@@ -199,6 +199,22 @@
             contentType: 'text/plain',
             data: {
                 uname: $('#del_name_value').val()
+            },
+            success: function (msg) {
+                console.log(msg)
+            },
+            fail: function (err) {
+                console.log(err)
+            }
+        })
+    })
+    $('#delRelation').click(function () {
+        $.ajax({
+            url: '/delrelation',
+            type: 'POST',
+            contentType: 'text/plain',
+            data: {
+                uname: $('#del_relation_value').val()
             },
             success: function (msg) {
                 console.log(msg)

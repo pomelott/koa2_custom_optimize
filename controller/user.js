@@ -35,8 +35,16 @@ module.exports = {
     },
     delUser: async (ctx, next) => {
         let param = querytoObj(ctx.request.body);
-        await ctx.model.user.delUser(param.uname).then((data) => {
+        await ctx.tp.user.delUserTrans(param.uname).then((data) => {
          
+            ctx.send({status: 0})
+        })
+    },
+    delRelation: async (ctx, next) => {
+        
+        let param = querytoObj(ctx.request.body);
+        console.log(param)
+        await ctx.model.user.delRelation({uname: param.uname}).then(() => {
             ctx.send({status: 0})
         })
     }
