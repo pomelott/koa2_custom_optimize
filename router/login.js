@@ -1,5 +1,4 @@
 const LoginController = require('../controller/login')
 module.exports = (router, sign, secret) => {
-    router
-        .post('/login', LoginController.login)
+    // router.post('/login', LoginController.login)
 }

@@ -2,12 +2,15 @@ const koa = require('koa');
 const app = new koa();
 const MiddleWare = require('./middleware');
 const Router = require('./router')
-
-
+const initController = require('./ek_modules/ekController')
+initController(app)
 // 中间件初始化
 MiddleWare(app);
 //业务路由初始化
 Router(app);
+
+
+
 // token总路由验证
 app.use(async (ctx, next) => {
     let params =Object.assign({}, ctx.request.query, ctx.request.body);
