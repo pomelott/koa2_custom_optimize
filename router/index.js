@@ -5,13 +5,15 @@ const jwt = require('koa-jwt')({secret});
 const router = new Router();
 const Login = require('./login');
 const User = require('./user');
-
-
+const DirProxy = require('../ek_modules/DirProxy');
+const chain = require('../ek_modules/dirChain');
 module.exports = (app) => {
-    const ctr = app.controller;
+    app.controller = {};
     router.get('/', (ctx, next) => {
-        console.log('aa')
-        ctr.fgs = 'fds'
+        app.controller = new DirProxy().init()
+        console.log(11)
+        console.log(app.controller.hw.ok)
+        // ctr.fgs = 'fds'
     })
     // router.get('/404',ctr.index.notFound)
     // router.get('/test',ctr.index.test);

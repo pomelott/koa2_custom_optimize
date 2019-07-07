@@ -2,8 +2,8 @@ const koa = require('koa');
 const app = new koa();
 const MiddleWare = require('./middleware');
 const Router = require('./router')
-const initController = require('./ek_modules/ekController')
-initController(app)
+// const initController = require('./ek_modules/ekController')
+// initController(app)
 // 中间件初始化
 MiddleWare(app);
 //业务路由初始化
