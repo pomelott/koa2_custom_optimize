@@ -16,7 +16,7 @@ class DirProxy {
         try {
             targetFile = fs.statSync(baseFile);
         } catch (err) {}
-        console.log(baseDir, baseFile)
+        // console.log(baseDir, baseFile)
         if (targetDir || targetFile) {
             if (targetDir && targetDir.isDirectory()) {
                 return 'dir'
@@ -41,37 +41,22 @@ class DirProxy {
                 if (key && Object.prototype.toString.call(key) === '[object String]') {
                     _this.dir.push(key)
                 }
-                
-                // let baseDir = _this.dir.length ? `../controller/${_this.dir.join('/')}` : `../controller`;
-                let baseDir = path.relative(__dirname, `c:/FE/nodeFile/node_base_learn/${_this.dir.join('/')}`);
-                // let baseDir = path.resolve(__dirname, '../controller');
+                // c:/FE/nodeFile/node_base_learn/ 为项目根目录
+                let baseDir = path.relative(__dirname, `c:/FE/nodeFile/node_base_learn/${_this.dir.join('/')}`);                
                 let ctrPath = path.resolve(__dirname, baseDir)
-                console.log(11)
-                console.log(ctrPath)
                 let targetCtr = DirProxy.getFile(ctrPath);
-                // if (!targetCtr) {
-                //     console.error(`Error: wrong path with '${ctrPath}' !`)
-                //     return false;
-                // } else if (targetCtr === 'dir') {
-                //     return new Proxy({path: _this.dir}, handler);
-                // } else {
-                //     return require(ctrPath + '.js')
-                // }
                 if (targetCtr == 'dir') {
                     return new Proxy({path: _this.dir}, handler);
                 } else {
+                    // 根基commonjs的模块解析规则可直接引入目录或js文件
                     return require(ctrPath)
                 }
-                
-                
-                
             },
             set (target, key, value, receiver) {
-                // console.log(key)
-                return new Proxy({}, handler);
+                return false;
             },
             construct: function(target, args) {
-                // console.log(ctrPath)
+                return false;
             }
         }
         return new Proxy({path: _this.dir}, handler)

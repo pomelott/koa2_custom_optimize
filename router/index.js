@@ -1,15 +1,21 @@
 const Router = require('koa-router');
+const router = new Router();
 const { sign } = require('jsonwebtoken');
 const secret = 'pomelo';
 const jwt = require('koa-jwt')({secret});
-const router = new Router();
+
 const Login = require('./login');
 const User = require('./user');
-const DirProxy = require('../ek_modules/DirProxy');
+const DirProxy = require('../ek_modules/DirProxy');``
 const chain = require('../ek_modules/dirChain');
+const routerMap = require('./routerMap');
+
 module.exports = (app) => {
+    app.use(router.routes()).use(router.allowedMethods())
     // app.controller = {};
-    router.get('/', app.controller.hw.ok.ok)
+    // router.get('/', ekRouter({}))
+    routerMap.init(router)
+    routerMap.map({method: 'get', url: '/', router: '/hw/ok.js'})
     // router.get('/404',ctr.index.notFound)
     // router.get('/test',ctr.index.test);
     // router.get('/doupload',ctr.upload.uploadIndex)
@@ -29,6 +35,6 @@ module.exports = (app) => {
     User(router, jwt);
     
     
-
-    app.use(router.routes()).use(router.allowedMethods())
+    
+    
 }
