@@ -1,3 +1,6 @@
 module.exports = {
-    ok: 'ok haha'
+    ok: async (ctx, next) => {
+        // console.log(ctx)
+        await ctx.render('index')
+    }
 }
