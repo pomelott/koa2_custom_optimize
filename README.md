@@ -95,7 +95,7 @@ export default class extends Model{
 }
 ```
 
-### QueryRunner way
+### queryRunner way
 
 * this way can support transaction
 
@@ -177,3 +177,7 @@ export default class extends Service{
 
 * for detail, please view the source code.
 * the api document will be published later.
+
+## Links
+
+* [import-esm-directory](https://github.com/pomelott/import-esm-directory)
