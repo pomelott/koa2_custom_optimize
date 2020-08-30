@@ -1,5 +1,4 @@
 import Service from "@class/Service";
-import { Console } from "console";
 import { QueryRunner } from "typeorm";
 
 export default class extends Service{

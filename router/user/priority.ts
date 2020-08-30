@@ -4,8 +4,7 @@ export default {
         middleware: ['user.priority']
     },
     check: {
-        route: '/check',
-        middleware: ['user.check'],
+        route: '/check'
 
     },
     testRepository: {

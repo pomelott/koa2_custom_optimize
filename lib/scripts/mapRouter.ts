@@ -85,6 +85,7 @@ export default (router: Router, routerModule: DirectoryModule, conn: Connection)
             for (let key in layerItemModule) {
                 let {type, route, controller, keyName, middleware} = layerItemModule[key] as RouterExportItemInterface;
                 let ControllerClass = await import(controller);
+                middleware = middleware ? middleware : [];
                 let targetRouterMiddleware = getTargetRouterMiddleware(middleware, routerMiddleware);
                 router[type](route, ...targetGlobalMiddleware, ...targetRouterMiddleware, async (ctx: Context, next: Function) => {
                     let ctrl = new ControllerClass.default;

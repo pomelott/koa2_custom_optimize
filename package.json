@@ -5,15 +5,16 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "pm2 start ts-node --  -r tsconfig-paths/register ./app.ts --watch --files",
-    "debug": "ts-node -r tsconfig-paths/register app.ts --files",
-    "create-model": "ts-node ./lib/scripts/createModel.ts"
+    "server": "npx pm2 start ts-node --  -r tsconfig-paths/register ./app.ts --watch --files",
+    "debug": "npx ts-node -r tsconfig-paths/register app.ts --files",
+    "create-model": "npx ts-node ./lib/scripts/createModel.ts"
   },
   "author": "pomelott",
   "license": "ISC",
   "dependencies": {
     "@types/koa": "^2.11.4",
     "@types/koa-router": "^7.4.1",
+    "@types/log4js": "^2.3.5",
     "@types/node": "^14.6.1",
     "chai": "^4.2.0",
     "ejs": "^2.6.1",
@@ -31,6 +32,7 @@
     "koa-views": "^6.2.0",
     "log4js": "^4.3.1",
     "mysql": "^2.18.1",
+    "pm2": "^4.4.1",
     "reflect-metadata": "^0.1.13",
     "tsconfig-paths": "^3.9.0",
     "typeorm": "^0.2.25",
