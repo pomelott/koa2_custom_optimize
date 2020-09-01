@@ -1,6 +1,6 @@
-# koa-typescript
+# koa-ts-node
 
-* A pure server-end koa framework which use typescript directly.
+* a pure server-end koa framework which use ts-node and typescript directly.
 
 * use pm2 & ts-node
 

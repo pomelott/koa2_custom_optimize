@@ -1,7 +1,7 @@
 {
-  "name": "koa-typescript",
-  "version": "0.0.1",
-  "description": "a pure server-end koa framework which use typescript directly.",
+  "name": "koa-ts-node",
+  "version": "1.0.0",
+  "description": "a pure server-end koa framework which use ts-node and typescript directly.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
