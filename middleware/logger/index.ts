@@ -3,7 +3,6 @@ import { Next } from "koa";
 // import log4js from 'log4js';
 import { configure, getLogger, Logger } from "log4js";
 export default async (ctx: Context, next: Next) => {
-    console.log('[middleware]: logger middleware');
     let date = new Date();
     let yearDir = date.getFullYear();
     let monthDir = date.getMonth() + 1;

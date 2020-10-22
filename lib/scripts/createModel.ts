@@ -4,8 +4,8 @@ import {paramParser} from '../util';
 import dbConf from '../conf/db';
 let cmd: string;
 let parseParam = paramParser(process.argv, {
-    port: '3306',
-    user: 'root',
+    port: 3306,
+    user: 'tate',
     output: path.resolve(__dirname, '../../orm'),
     db: 'koa_test',
     engine: 'mysql',

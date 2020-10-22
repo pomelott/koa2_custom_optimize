@@ -17,12 +17,14 @@ export default class Priority extends Controller {
     }
 
     private async check () {
+        // let qr = await this.getQueryRunner();
+        // let userService = await this.service('user.userService');
+        // this.response.body = await userService.priorityService(qr);
+        console.log(this.render)
+        await this.render('/error/404.pug', {name: 'tate'})
+        this.ctx.debug.info('check debug');
+        this.ctx.logger.info('check logger');
         
-        let qr = await this.getQueryRunner();
-        let userService = await this.service('user.userService');
-        this.response.body = await userService.priorityService(qr);
-        this.ctx.debug.info('check debug')
-        this.ctx.logger.info('check logger')
     }
 
     private async testRepository () {
@@ -30,4 +32,5 @@ export default class Priority extends Controller {
         await userModel.testRepository();
         this.response.body = await userModel.getAll();
     }
+    
 }

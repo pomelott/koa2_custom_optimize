@@ -1,6 +1,5 @@
 # Todo list
 
-* initializer
 * exception
 * test
 * err page
@@ -9,3 +8,4 @@
 * restful api
 * server render
 * big pipe
+* initializer

@@ -1,7 +1,7 @@
 import path from 'path';
 const sep = path.sep;
 interface ParseParamInterface {
-    [key: string]: string;
+    [key: string]: number|string;
 }
 
 export function paramParser (argv: Array<string>, defaultParam: ParseParamInterface): ParseParamInterface {
