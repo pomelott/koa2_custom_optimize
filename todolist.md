@@ -6,6 +6,7 @@
 * split front-end
 * multi-progress
 * restful api
-* server render
+* ssr
 * big pipe
 * initializer
+* server optimization such as pm2
