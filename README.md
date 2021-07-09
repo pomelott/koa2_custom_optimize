@@ -16,6 +16,7 @@
 * more convenient router、controller、model、service、middleware、routerMiddleware
 * provide orm operation with transactions
 * provide log with higher readability.
+* support SSR with [pug](https://pugjs.org/api/getting-started.html)
 
 ## Npm script
 

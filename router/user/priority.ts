@@ -5,7 +5,6 @@ export default {
     },
     check: {
         route: '/check'
-
     },
     testRepository: {
         route: '/repository',

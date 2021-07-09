@@ -37,7 +37,6 @@ function isRouterExportModule (filepath: string, module: RouterExportInterface) 
 }
 
 function makeMap (filepath: string, module: RouterExportInterface): void {
-    // console.log(module)
         for (let key in module) {
             module[key].keyName = key;
             if (!isRouterExportModule(filepath, module)) {
@@ -84,10 +83,12 @@ export default (router: Router, routerModule: DirectoryModule, conn: Connection)
             let targetGlobalMiddleware = await getGlobalRouterMiddleware();
             for (let key in layerItemModule) {
                 let {type, route, controller, keyName, middleware} = layerItemModule[key] as RouterExportItemInterface;
+                
                 let ControllerClass = await import(controller);
                 middleware = middleware ? middleware : [];
                 let targetRouterMiddleware = getTargetRouterMiddleware(middleware, routerMiddleware);
                 router[type](route, ...targetGlobalMiddleware, ...targetRouterMiddleware, async (ctx: Context, next: Function) => {
+                    
                     let ctrl = new ControllerClass.default;
                     ctrl.init(ctx, conn, controller);
                     ctrl.bindValue();
