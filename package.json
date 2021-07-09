@@ -1,6 +1,6 @@
 {
   "name": "koa-ts-node",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "a pure server-end koa framework which use ts-node and typescript directly.",
   "main": "index.js",
   "scripts": {
