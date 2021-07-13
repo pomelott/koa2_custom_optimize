@@ -20,7 +20,7 @@ export default class Priority extends Controller {
         // let qr = await this.getQueryRunner();
         // let userService = await this.service('user.userService');
         // this.response.body = await userService.priorityService(qr);
-        await this.render('/error/404.pug', {name: 'path: /check'})
+        await this.render('error/404.html', {name: 'path: /check'})
         this.ctx.debug.info('check debug');
         this.ctx.logger.info('check logger');
         

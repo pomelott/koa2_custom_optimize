@@ -41,7 +41,6 @@ export default async (app: Koa): Promise<boolean> => {
             app
                 .use(router.routes())
                 .use(router.allowedMethods())
-
             // 命中已有路由
             mapRouter(router, routerModule, connection)
 

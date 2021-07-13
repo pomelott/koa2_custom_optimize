@@ -1,6 +1,6 @@
 import logger from './logger';
-import koaTsPug from './koa-ts-pug';
+import koaTsRender from './koa-ts-render';
 export default [
     logger,
-    koaTsPug
+    koaTsRender
 ]

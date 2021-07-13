@@ -6,7 +6,7 @@ export default function defaultPageMiddleware (routePool: Array<string>) {
 				await ctx.render('index.html');
 				next();
 			} else if (routePool.indexOf(ctx.request.url) === -1) {
-				await ctx.render('/error/404.pug', {name: 'tate'});
+				await ctx.render('error/404.html', {name: 'tate'});
 				next();
 			} else {
 				next();
